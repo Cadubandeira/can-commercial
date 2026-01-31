@@ -825,7 +825,7 @@ let currentLang = 'en'; // default
 
 async function loadLanguage(lang) {
     try {
-        const response = await fetch(`/i18n/${lang}.json`);
+        const response = await fetch(`./i18n/${lang}.json`);
         translations = await response.json();
         currentLang = lang;
 
