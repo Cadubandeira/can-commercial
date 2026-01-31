@@ -1,0 +1,150 @@
+{
+  "nav": {
+    "solution": "A Solução",
+    "differentials": "Diferenciais",
+    "deliverables": "Entregáveis",
+    "pricing": "Investimento",
+    "request": "Solicitar contrato"
+  },
+  "hero": {
+    "title": {
+      "line1": "Sua marca prescrita.",
+      "line2": "Guiada pela ciência."
+    },
+    "subtitle": "Transforme a MisoBio em um canal estruturado de relacionamento e crescimento através de um ecossistema exclusivo de prescrição.",
+    "badges": {
+      "fast": "Implementação Rápida",
+      "compliance": "Compliance",
+      "AI": "Impulsionado por IA"
+    }
+  },
+  "modal": {
+    "title": "Pronto para liderar a transformação científica?",
+    "subtitle": "Solicite o contrato para firmar a parceria.",
+    "form": {
+      "name": {
+        "label": "Nome completo",
+        "placeholder": "Ex: Dr. João Silva"
+      },
+      "email": {
+        "label": "E-mail",
+        "placeholder": "joao@clinica.com"
+      },
+      "submit": "Enviar"
+    },
+    "disclaimer": "Ao clicar, você concorda em ser contatado pela equipe Canabinote para finalização dos trâmites comerciais."
+  },
+  "solução": {
+    "title": "O que é a Plataforma de Prescrição White Label?",
+    "description": "É uma plataforma de saúde digital personalizada que coloca a MisoBio no centro da tomada de decisão clínica. Uma ferramenta robusta para os médicos e uma fonte de inteligência para sua marca.",
+    "card1": {
+      "title": "Prescrição Digital",
+      "description": "Integração fluida na clínica."
+    },
+    "card2": {
+      "title": "Monitoramento",
+      "description": "Dados de aderência em tempo real."
+    },
+    "card3": {
+      "title": "Identidade Própria",
+      "description": "Sua marca, nossa tecnologia."
+    }
+    },
+    "diferenciais": {
+      "title": "Por que ter um ambiente personalizado?",
+      "subtitle": "Vantagens estratégicas para marcas que buscam liderança.",
+      "card1": {
+        "title": "Lealdade do Médico",
+        "description": "Experiência contínua e suporte para a prática clínica diária, criando um vínculo genuíno entre médico e marca."
+      },
+      "card2": {
+        "title": "Dados Exclusivos",
+        "description": "Acesso a insights valiosos sobre o comportamento e preferências dos médicos, permitindo estratégias de marketing mais eficazes e direcionadas."
+      },
+      "card3": {
+        "title": "Posicionamento de Mercado",
+        "description": "Destaque-se no mercado ao oferecer uma solução inovadora e personalizada, reforçando a imagem da sua marca como líder em tecnologia e cuidado ao paciente."
+      },
+      "card4": {
+        "title": "Engajamento Direto",
+        "description": "Comunicação direta com os médicos através da plataforma, facilitando o compartilhamento de atualizações, novidades e materiais educacionais."
+      }
+    },
+    "entregaveis": {
+      "title": "O que está incluso na implementação?",
+      "subtitle": "Tudo o que é necessário para lançar sua plataforma White Label de forma rápida e eficiente.",
+      "card1": {
+        "overline": "Configuração",
+        "title": "Configuração Personalizada",
+        "description": "Adaptação completa da plataforma com a identidade visual e elementos da marca MisoBio.",
+        "bottom": "Experiência única para médicos e pacientes."
+      },
+        "card2": {
+            "overline": "Integração",
+            "title": "Integração Clínica",
+            "description": "Implementação técnica para garantir que a plataforma funcione perfeitamente dentro do ambiente clínico.",
+            "bottom": "Integração perfeita com sistemas existentes da clínica."
+        },
+        "card3": {
+            "overline": "Treinamento",
+            "title": "Treinamento e Suporte",
+            "description": "Capacitação da equipe médica e suporte contínuo para garantir o uso eficaz da plataforma.",
+            "bottom": "Apoio dedicado para maximizar o engajamento."
+        },
+        "card4": { 
+            "overline":"Conteúdo",
+            "title": "Monitoramento e Relatórios",
+            "description": "Ferramentas de análise para acompanhar o desempenho da plataforma e o engajamento dos médicos.",
+            "bottom": "Relatórios detalhados."
+        },
+        "card5": {
+            "overline": "Atualizações",
+            "title": "Atualizações Regulares",
+            "description": "Manutenção e melhorias contínuas para garantir que a plataforma esteja sempre atualizada com as últimas tecnologias e tendências do mercado.",
+            "bottom": "Tecnologia sempre atualizada."
+        },
+        "card6": {
+            "overline": "Compliance",
+            "title": "Conformidade Regulatória",
+            "description": "Garantia de que a plataforma atende a todas as normas e regulamentos aplicáveis ao setor de saúde.",
+            "bottom": "Segurança e conformidade garantidas."
+    }
+    },
+    "investimento": {
+        "title": "Investimento",
+        "subtitle": "Planos flexíveis para atender às necessidades da MisoBio.",
+        "card1": {
+            "gemini_tag": "Recomendação Gemini",
+            "title": "Plataforma White Label",
+            "tag": "Incluso",
+            "description": "Implementação completa da plataforma personalizada para a MisoBio.",
+            "features": {
+                "feature1": "Configuração personalizada",
+                "feature2": "Integração clínica",
+                "feature3": "Treinamento e suporte"
+            },
+            "pricetag": "Valor Mensal"
+        },
+        "card2": {
+            "title": "Educação & Engajamento",
+            "tag": "Opcional",
+            "description": "Programa de capacitação com médico referência.",
+            "features": {
+                "feature1": "6 Encontros quinzenais online",
+                "feature2": "Foco em formação de comunidade",
+                "feature3": "Conteúdo focado em MisoBio"
+            },
+            "pricetag": "Valor Global (Parcelável 3x)"
+        },
+        "request": "Solicitar contrato"
+    },
+    "footer": "© 2026. Proposta exclusiva da Canabinote para MisoBio. Todos os direitos reservados.",
+    "gemini": {
+        "title": "Análise de Oportunidade Gemini",
+        "prompt": "Peça para a IA analisar como a MisoBio pode se beneficiar dos serviços Canabinote.",
+        "button": "Analisar Oportunidade",
+        "loading": "Analisando dados da MisoBio e Canabinote...",
+        "result": "A análise cruzada indica uma sinergia de 94%. A MisoBio ganha um canal direto de prescrição que elimina a fricção na jornada do paciente, enquanto a tecnologia Canabinote fornece os dados de Real World Evidence (RWE) cruciais para sua expansão de mercado. Projetamos um aumento de 27% no LTV (Lifetime Value) do paciente.",
+        "reset": "Realizar nova análise"
+    }
+}

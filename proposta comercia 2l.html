@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta MisoBio | Canabinote Enterprise</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; }
+
+        html {
+    scrollbar-gutter: stable;
+}
+
+.lang-switcher {
+    position: relative;
+}
+
+.lang-current {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    padding: 0.25rem 0.4rem;
+    border-radius: 0.5rem;
+}
+
+.lang-current:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+.lang-current img {
+    width: 22px;
+    height: 16px;
+    border-radius: 2px;
+}
+
+.chevron {
+    opacity: 0.6;
+}
+
+.lang-options {
+    position: absolute;
+    right: 0;
+    top: 120%;
+
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+
+    list-style: none;
+    padding: 0.4rem;
+    margin: 0;
+
+    display: none;
+}
+
+.lang-switcher.open .lang-options {
+    display: block;
+}
+
+.lang-options li {
+    padding: 0.35rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+.lang-options li:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+.lang-options img {
+    width: 22px;
+    height: 16px;
+    border-radius: 2px;
+}
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-panel.scrolled {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .modal-overlay {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            transform: scale(0.95) translateY(20px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.6s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #172A60 0%, #00914C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .headline { font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1.1; font-weight: 800; }
+        .subheadline { font-size: clamp(1.1rem, 2.5vw, 1.5rem); color: #86868b; font-weight: 500; }
+
+        /* Estética Apple: Seletores Minimalistas */
+        .apple-selector {
+            padding: 1.5rem;
+            border-radius: 1.25rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .apple-selector.active {
+            background: rgba(0, 0, 0, 0.03);
+        }
+
+        .apple-selector.active h4 {
+            color: #00914C;
+        }
+
+
+       /* Display minimalista FUNCIONAL */
+        .display-container {
+            padding: 0;
+            background: transparent;
+            box-shadow: none;
+            border-radius: 0;
+
+            /* mantém presença no layout */
+            width: 100%;
+        }
+
+        .screen-mockup {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+
+            overflow: hidden;
+
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .mockup-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+            border-radius: 1rem;
+        }
+
+        .mockup-img.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .pricing-card-primary {
+            background: linear-gradient(145deg, #172A60 0%, #0a132c 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .pricing-card-secondary {
+            background: white;
+            border: 1px solid #e5e7eb;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #00914C;
+            box-shadow: 0 0 0 4px rgba(0, 145, 76, 0.1);
+        }
+
+        .icon-box {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 500: '#00914C', 600: '#006736' },
+                        secondary: { 900: '#172A60' },
+                        appleGray: { 50: '#F5F5F7', 100: '#E8E8ED', 400: '#86868b' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#FAFAFA] text-[#1D1D1F] antialiased">
+
+    <!-- Modal de Contrato -->
+    <div id="contract-modal" class="modal-overlay fixed inset-0 z-[100] flex items-center justify-center p-6">
+        <div class="modal-content bg-white w-full max-w-[480px] rounded-[2.5rem] p-10 shadow-2xl relative border border-gray-100">
+            <button onclick="closeModal()" class="absolute top-6 right-6 p-2 text-gray-400 hover:text-gray-900 transition-colors">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="text-center mb-8">
+                <div class="w-16 h-16 bg-primary-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-primary-500">
+                    <i data-lucide="file-text" class="w-8 h-8"></i>
+                </div>
+                <h3 class="text-2xl font-extrabold text-secondary-900 mb-2" data-i18n="modal.title">Ready to lead the scientific transformation?</h3>
+                <p class="text-appleGray-400 text-sm" data-i18n="modal.subtitle">Request the contract to formalize the partnership.</p>
+            </div>
+
+            <form id="contract-form" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                <div>
+                    <label class="block text-[11px] font-bold text-secondary-900 uppercase tracking-wider mb-1.5 ml-1" data-i18n="modal.form.name.label">Full name</label>
+                    <input type="text" required placeholder="Ex: Dr. João Silva" class="w-full bg-appleGray-50 border border-gray-200 rounded-2xl px-5 py-3.5 text-sm transition-all">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-bold text-secondary-900 uppercase tracking-wider mb-1.5 ml-1" data-i18n="modal.form.email.label">E-mail</label>
+                    <input type="email" required placeholder="joao@clinica.com" class="w-full bg-appleGray-50 border border-gray-200 rounded-2xl px-5 py-3.5 text-sm transition-all">
+                </div>
+                <button type="submit" class="w-full bg-primary-500 text-white font-bold py-4 rounded-2xl hover:bg-primary-600 transition-all shadow-lg shadow-primary-500/20 mt-4" data-i18n="modal.form.submit">
+                    Send
+                </button>
+            </form>
+
+            <p class="text-[11px] text-center text-appleGray-400 mt-6 leading-relaxed" data-i18n="modal.disclaimer">
+                By clicking, you agree to be contacted by the Canabinote team to complete commercial procedures.
+            </p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 py-4" id="navbar">
+        <div class="max-w-[1000px] mx-auto px-6">
+            <div id="nav-content" class="glass-panel rounded-full px-6 py-2.5 flex justify-between items-center shadow-sm">
+                <div class="flex items-center gap-2">
+                    <a href="#visao-geral"><img src="src/logo canabinote.svg" alt="Canabinote Logo" class="h-6"></a>
+                </div>
+                <div class="hidden md:flex space-x-8 text-[12px] font-semibold text-[#1d1d1f]">
+                    <a href="#solucao" data-i18n="nav.solution">Solution</a>
+                    <a href="#diferenciais" data-i18n="nav.differentials">Differentials</a>
+                    <a href="#entregaveis" data-i18n="nav.deliverables">Deliverables</a>
+                    <a href="#investimento" data-i18n="nav.pricing">Pricing</a>
+                </div>
+                
+                <button onclick="openModal()" data-i18n="nav.request" class="bg-primary-500 text-white px-8 py-1.5 rounded-full text-[11px] font-bold hover:bg-primary-600 transition-all">Request Contract</button>
+
+                <div class="lang-switcher">
+                    <button class="lang-current" aria-label="Change language">
+                        <img src="src/us.svg" alt="English" />
+                        <svg class="chevron" width="14" height="14" viewBox="0 0 24 24">
+                            <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </button>
+
+                    
+                    <ul class="lang-options">
+                        <li data-lang="en">
+                            <img src="/src/us.svg" alt="English" />
+                        </li>
+                        <li data-lang="pt">
+                            <img src="/src/br.svg" alt="Português" />
+                        </li>
+                        <li data-lang="es">
+                            <img src="/src/es.svg" alt="Español" />
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="visao-geral" class="pt-40 pb-20">
+        <div class="max-w-[1000px] mx-auto px-6 text-center">
+            <div class="reveal active">
+                <h1 class="headline mb-6">
+                    <span data-i18n="hero.title.line1">Your brand, prescribed.</span><br>
+                    <span data-i18n="hero.title.line2" class="text-gradient">Guided by science.</span>
+                </h1>
+                <p data-i18n="hero.subtitle" class="subheadline max-w-2xl mx-auto mb-10">
+                    Transform MisoBio into a structured channel for relationship and growth through an exclusive prescription ecosystem.
+                </p>
+                <div class="flex flex-wrap justify-center gap-8 text-[13px] font-bold text-secondary-900 mb-16">
+
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100">
+                        <i data-lucide="zap" class="w-4 h-4 text-primary-500"></i> <span data-i18n="hero.badges.fast">Fast Implementation</span>
+                    </div>
+                    <div class="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-full shadow-sm border border-indigo-100 text-indigo-900">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-indigo-500"></i> <span data-i18n="hero.badges.AI">Powered by AI</span>
+                    </div>
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-primary-500"></i> <span data-i18n="hero.badges.compliance">Compliance</span>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Preview do Sistema -->
+            <div class="reveal mt-8 max-w-4xl mx-auto">
+                <div class="glass-panel p-2 rounded-2xl shadow-2xl border border-white/60">
+                    <div class="bg-white rounded-xl overflow-hidden border border-gray-100 aspect-[16/10] relative">
+                         <div class="absolute inset-0 flex">
+                             <div class="w-56 border-r border-gray-50 p-6 hidden md:block bg-[#fbfbfb]">
+                                 <div class="w-8 h-8 bg-primary-500 rounded-lg mb-8"></div>
+                                 <div class="space-y-4">
+                                     <div class="h-2 w-full bg-gray-200 rounded-full"></div>
+                                     <div class="h-2 w-3/4 bg-gray-100 rounded-full"></div>
+                                     <div class="h-2 w-5/6 bg-gray-100 rounded-full"></div>
+                                 </div>
+                             </div>
+                             <div class="flex-1 p-8">
+                                 <div class="flex justify-between items-center mb-10">
+                                     <div class="h-8 w-48 bg-secondary-900 rounded-lg"></div>
+                                     <div class="w-8 h-8 rounded-full bg-gray-100"></div>
+                                 </div>
+                                 <div class="grid grid-cols-2 gap-6">
+                                     <div class="h-32 bg-appleGray-50 rounded-2xl border border-gray-100"></div>
+                                     <div class="h-32 bg-appleGray-50 rounded-2xl border border-gray-100"></div>
+                                     <div class="h-48 col-span-2 bg-white rounded-2xl border border-gray-200 shadow-sm flex items-center justify-center">
+                                         <div class="w-full px-12 space-y-4">
+                                             <div class="h-3 w-1/2 bg-gray-100 rounded-full"></div>
+                                             <div class="h-3 w-full bg-primary-500/10 rounded-full"></div>
+                                             <div class="h-3 w-3/4 bg-gray-100 rounded-full"></div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: A Solução -->
+    <section id="solucao" class="py-24 bg-white">
+        <div class="max-w-[1000px] mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                <h2 data-i18n="solução.title" class="text-3xl font-bold mb-4">O que é o ambiente de prescriçao White Label?</h2>
+                     <p data-i18n="solução.description" class="text-appleGray-400 max-w-xl mx-auto">É uma plataforma de saúde digital personalizada que coloca a MisoBio no centro da decisão clínica. Uma ferramenta robusta para o médico e uma fonte de inteligência para a sua marca.</p>
+                </div>
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Seletores Minimalistas -->
+                <div class="lg:col-span-4 space-y-2 reveal">
+                    
+                    <div class="apple-selector active" onmouseenter="switchImage('prescricao')" id="card-prescricao">
+                        <div class="flex items-center gap-4">
+                            <div>
+                                <h4 data-i18n="solução.card1.title" class="font-semibold text-xl transition-colors">Prescrição Digital</h4>
+                                <p data-i18n="solução.card1.description" class="text-gray-500 text-sm mt-1">Integração fluida ao consultório.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apple-selector" onmouseenter="switchImage('monitoramento')" id="card-monitoramento">
+                        <div class="flex items-center gap-4">
+                            <div>
+                                <h4 data-i18n="solução.card2.title" class="font-semibold text-xl transition-colors">Monitoramento</h4>
+                                <p data-i18n="solução.card2.description" class="text-gray-500 text-sm mt-1">Dados reais de adesão.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="apple-selector" onmouseenter="switchImage('marca')" id="card-marca">
+                        <div class="flex items-center gap-4">
+                            <div>
+                                <h4 data-i18n="solução.card3.title" class="font-semibold text-xl transition-colors">Identidade Própria</h4>
+                                <p data-i18n="solução.card3.description" class="text-gray-500 text-sm mt-1">Sua marca, nossa tecnologia.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Display Minimalista -->
+                <div class="lg:col-span-8 reveal">
+                    <div class="display-container">
+                        <div class="screen-mockup">
+                            <img src="/img/condição.png" 
+                                 alt="Interface prescrevendo para condição clínica" id="img-prescricao" class="mockup-img active">
+                            
+                            <img src="/img/monitoramento.png" 
+                                 alt="Monitoramento de pacientes" id="img-monitoramento" class="mockup-img">
+
+                            <img src="/img/prescrição.png" 
+                                 alt="Branding" id="img-marca" class="mockup-img">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Diferenciais -->
+    <section id="diferenciais" class="py-24 bg-appleGray-50">
+        <div class="max-w-[1000px] mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 data-i18n="diferenciais.title" class="text-3xl font-bold mb-4">Por que ter um ambiente personalizado?</h2>
+                <p data-i18n="diferenciais.subtitle" class="text-appleGray-400 max-w-xl mx-auto">Vantagens estratégicas para marcas que buscam liderança.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+                <div class="bg-white p-8 rounded-[2rem] border border-gray-100 flex gap-6 hover:shadow-lg transition-all">
+                    <div class="icon-box flex-shrink-0 text-primary-500">
+                        <i data-lucide="heart" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 data-i18n="diferenciais.card1.title" class="text-lg font-bold mb-2">Fidelização Médica</h3>
+                        <p data-i18n="diferenciais.card1.description" class="text-sm text-appleGray-400 leading-relaxed">Experiência contínua e suporte ao dia a dia clínico, criando um vínculo genuíno entre médico e marca.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-[2rem] border border-gray-100 flex gap-6 hover:shadow-lg transition-all">
+                    <div class="icon-box flex-shrink-0 text-primary-500">
+                        <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 data-i18n="diferenciais.card2.title" class="text-lg font-bold mb-2">Capacitação Direcionada</h3>
+                        <p data-i18n="diferenciais.card2.description" class="text-sm text-appleGray-400 leading-relaxed">Conduza o médico pelo portfólio e posicionamento científico da sua marca de forma fluida.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-[2rem] border border-gray-100 flex gap-6 hover:shadow-lg transition-all">
+                    <div class="icon-box flex-shrink-0 text-primary-500">
+                        <i data-lucide="brain-circuit" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 data-i18n="diferenciais.card3.title" class="text-lg font-bold mb-2">Inteligência de Mercado</h3>
+                        <p data-i18n="diferenciais.card3.description" class="text-sm text-appleGray-400 leading-relaxed">Visibilidade de dados em tempo real sobre evolução de prescrições e aderência dos pacientes.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-[2rem] border border-gray-100 flex gap-6 hover:shadow-lg transition-all">
+                    <div class="icon-box flex-shrink-0 text-primary-500">
+                        <i data-lucide="share-2" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 data-i18n="diferenciais.card4.title" class="text-lg font-bold mb-2">Fortalecimento de Comunidade</h3>
+                        <p data-i18n="diferenciais.card4.description" class="text-sm text-appleGray-400 leading-relaxed">Diferenciação competitiva no ecossistema médico através de tecnologia de ponta.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Entregáveis -->
+    <section id="entregaveis" class="py-24 bg-white">
+        <div class="max-w-[1000px] mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 data-i18n="entregaveis.title" class="text-3xl font-bold mb-4">Entregáveis do Projeto</h2>
+                <p data-i18n="entregaveis.subtitle" class="text-appleGray-400">Implementação completa e suporte especializado.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+                <!-- Card 1 -->
+                <div class="bg-appleGray-50 p-8 rounded-3xl border border-gray-100 flex flex-col h-full hover:shadow-md transition-all">
+                    <span data-i18n="entregaveis.card1.overline" class="text-[10px] font-black uppercase text-primary-500 mb-2 tracking-widest">Identidade</span>
+                    <h3 data-i18n="entregaveis.card1.title" class="font-bold text-xl mb-3">Ambiente Visual</h3>
+                    <p data-i18n="entregaveis.card1.description" class="text-sm text-appleGray-400 mb-6 flex-grow">Aplicação completa de logo e cores conforme o guia de marca MisoBio.</p>
+                    <div class="pt-4 border-t border-gray-200">
+                        <span class="text-[11px] font-bold text-secondary-900 flex items-center gap-1">
+                            <i data-lucide="palette" class="w-3 h-3"></i> <span data-i18n="entregaveis.card1.bottom"> 100% Personalizado</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-appleGray-50 p-8 rounded-3xl border border-gray-100 flex flex-col h-full hover:shadow-md transition-all">
+                    <span data-i18n="entregaveis.card2.overline" class="text-[10px] font-black uppercase text-primary-500 mb-2 tracking-widest">Infraestrutura</span>
+                    <h3 data-i18n="entregaveis.card2.title" class="font-bold text-xl mb-3">Hospedagem & Link</h3>
+                    <p data-i18n="entregaveis.card2.description" class="text-sm text-appleGray-400 mb-6 flex-grow">Configuração de domínio dedicado (ex: prescricao.misobio.com) para acesso médico exclusivo.</p>
+                    <div class="pt-4 border-t border-gray-200">
+                        <span class="text-[11px] font-bold text-secondary-900 flex items-center gap-1">
+                            <i data-lucide="globe" class="w-3 h-3"></i><span data-i18n="entregaveis.card2.bottom"> Link Dedicado</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-appleGray-50 p-8 rounded-3xl border border-gray-100 flex flex-col h-full hover:shadow-md transition-all">
+                    <span data-i18n="entregaveis.card3.overline" class="text-[10px] font-black uppercase text-primary-500 mb-2 tracking-widest">Operação</span>
+                    <h3 data-i18n="entregaveis.card3.title" class="font-bold text-xl mb-3">Setup de Produtos</h3>
+                    <p data-i18n="entregaveis.card3.description" class="text-sm text-appleGray-400 mb-6 flex-grow">Cadastro do portfólio de produtos MisoBio.</p>
+                    <div class="pt-4 border-t border-gray-200">
+                        <span class="text-[11px] font-bold text-secondary-900 flex items-center gap-1">
+                            <i data-lucide="package" class="w-3 h-3"></i><span data-i18n="entregaveis.card3.bottom"> Prontos para prescrição</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-appleGray-50 p-8 rounded-3xl border border-gray-100 flex flex-col h-full hover:shadow-md transition-all">
+                    <span data-i18n="entregaveis.card4.overline" class="text-[10px] font-black uppercase text-primary-500 mb-2 tracking-widest">AUTORIDADE</span>
+                    <h3 data-i18n="entregaveis.card4.title" class="font-bold text-xl mb-3">Jornadas científicas</h3>
+                    <p data-i18n="entregaveis.card4.description" class="text-sm text-appleGray-400 mb-6 flex-grow">Compartilhe da ciência da Canabinote para fundamentar a prescrição de seus produtos.</p>
+                    <div class="pt-4 border-t border-gray-200">
+                        <span class="text-[11px] font-bold text-secondary-900 flex items-center gap-1">
+                            <i data-lucide="microscope" class="w-3 h-3"></i><span data-i18n="entregaveis.card4.bottom"> Ciência de ponta</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-appleGray-50 p-8 rounded-3xl border border-gray-100 flex flex-col h-full hover:shadow-md transition-all">
+                    <span data-i18n="entregaveis.card5.overline" class="text-[10px] font-black uppercase text-primary-500 mb-2 tracking-widest">permissões</span>
+                    <h3 data-i18n="entregaveis.card5.title" class="font-bold text-xl mb-3">Perfis de acesso</h3>
+                    <p data-i18n="entregaveis.card5.description" class="text-sm text-appleGray-400 mb-6 flex-grow">Estrutura inicial de perfis de acesso (admin, prescritores, suporte, etc.).</p>
+                    <div class="pt-4 border-t border-gray-200">
+                        <span class="text-[11px] font-bold text-secondary-900 flex items-center gap-1">
+                            <i data-lucide="shield-check" class="w-3 h-3"></i><span data-i18n="entregaveis.card5.bottom"> Gestão de Equipe</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-appleGray-50 p-8 rounded-3xl border border-gray-100 flex flex-col h-full hover:shadow-md transition-all">
+                    <span data-i18n="entregaveis.card6.overline" class="text-[10px] font-black uppercase text-primary-500 mb-2 tracking-widest">ONBOARDING</span>
+                    <h3 data-i18n="entregaveis.card6.title" class="font-bold text-xl mb-3">Suporte & Orientação</h3>
+                    <p data-i18n="entregaveis.card6.description" class="text-sm text-appleGray-400 mb-6 flex-grow">Todo o apoio necessário para gerenciar seu sistema extraindo todo seu potencial.</p>
+                    <div class="pt-4 border-t border-gray-200">
+                        <span class="text-[11px] font-bold text-secondary-900 flex items-center gap-1">
+                            <i data-lucide="headset" class="w-3 h-3"></i><span data-i18n="entregaveis.card6.bottom"> Focados no seu sucesso</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Investimento -->
+    <section id="investimento" class="py-24 bg-appleGray-50">
+        <div class="max-w-[1000px] mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 data-i18n="investimento.title" class="text-3xl font-bold mb-4">Investimento</h2>
+                <p data-i18n="invstimento.description" class="text-appleGray-400 italic text-sm">Proposta personalizada para implantação imediata.</p>
+            </div>
+
+            <!-- Gemini Analyzer Box -->
+            <div id="gemini-analyzer" class="bg-gradient-to-br from-[#F0F4FF] to-[#FDF2F8] border border-indigo-100 rounded-[2rem] p-8 mb-12 shadow-sm relative overflow-hidden reveal">
+                <!-- Background decoration -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+
+                <div class="relative z-10">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2 bg-white rounded-lg shadow-sm text-indigo-500">
+                            <i data-lucide="sparkles" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-indigo-900" data-i18n="gemini.title">Gemini Opportunity Analysis</h3>
+                    </div>
+
+                    <div id="gemini-initial">
+                        <p class="text-indigo-900/70 mb-6 max-w-2xl" data-i18n="gemini.prompt">Ask AI to analyze how MisoBio can benefit from Canabinote services.</p>
+                        <button onclick="runGeminiAnalysis()" class="flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-500/20">
+                            <i data-lucide="brain-circuit" class="w-4 h-4"></i>
+                            <span data-i18n="gemini.button">Analyze Opportunity</span>
+                        </button>
+                    </div>
+
+                    <div id="gemini-loading" class="hidden py-4">
+                        <div class="flex items-center gap-3 text-indigo-600 font-medium animate-pulse">
+                            <i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i>
+                            <span data-i18n="gemini.loading">Analyzing MisoBio and Canabinote data...</span>
+                        </div>
+                    </div>
+
+                    <div id="gemini-result" class="hidden">
+                        <div class="prose prose-sm text-indigo-900/80 mb-6 leading-relaxed bg-white/60 p-6 rounded-xl border border-indigo-50">
+                            <p data-i18n="gemini.result"></p>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-400 flex items-center gap-1">
+                                <i data-lucide="check-circle-2" class="w-3 h-3"></i> Verified by Google Gemini
+                            </span>
+                            <button onclick="resetGemini()" class="text-xs font-bold text-indigo-600 hover:text-indigo-800 underline decoration-2 underline-offset-2 transition-colors" data-i18n="gemini.reset">
+                                New Analysis
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-stretch reveal">
+                <div class="pricing-card-primary text-white rounded-[2.5rem] p-10 flex flex-col shadow-2xl relative overflow-hidden">
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-primary-500 opacity-10 rounded-full blur-3xl"></div>
+                    
+                    <div class="absolute top-6 right-6 bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5"><i data-lucide="sparkles" class="w-3 h-3"></i> <span data-i18n="investimento.card1.gemini_tag">Gemini Recommended</span></div>
+
+                    <h3 data-i18n="investimento.card1.title" class="text-lg font-bold text-primary-500 mb-2">Plataforma White Label</h3>
+                    <p data-i18n="investimento.card1.description" class="text-white/60 text-sm mb-10">Sistema de prescrição e recomendação completo.</p>
+                    
+                    <ul class="space-y-4 mb-12 flex-grow">
+                        <li class="flex items-center gap-3 text-sm">
+                            <i data-lucide="check" class="w-4 h-4 text-primary-500"></i><span data-i18n="investimento.card1.features.feature1"> Até 500 assinaturas médicas</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <i data-lucide="check" class="w-4 h-4 text-primary-500"></i><span data-i18n="investimento.card1.features.feature2"> Dashboard administrativo real-time</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <i data-lucide="check" class="w-4 h-4 text-primary-500"></i><span data-i18n="investimento.card1.features.feature3"> Suporte técnico especializado</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-auto">
+                        <span data-i18n="investimento.card1.pricetag" class="text-[10px] uppercase font-bold text-white/40 tracking-widest">Valor Mensal</span>
+                        <div class="text-4xl font-black mt-1">R$ 5.000,00</div>
+                    </div>
+                </div>
+
+                <div class="pricing-card-secondary rounded-[2.5rem] p-10 flex flex-col border border-gray-200">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 data-i18n="investimento.card2.title" class="text-lg font-bold text-secondary-900">Educação & Engajamento</h3>
+                        <span class="bg-primary-500/10 text-primary-600 text-[10px] font-black px-2 py-1 rounded-md uppercase"><span data-i18n="investimento.card2.tag">Opcional</span>
+                    </div>
+                    <p data-i18n="investimento.card2.description" class="text-appleGray-400 text-sm mb-10">Programa de capacitação com médico referência.</p>
+                    
+                    <ul class="space-y-4 mb-12 flex-grow">
+                        <li class="flex items-center gap-3 text-sm text-secondary-900 font-medium">
+                            <i data-lucide="video" class="w-4 h-4 text-primary-500"></i><span data-i18n="investimento.card2.features.feature1"> 6 Encontros quinzenais online</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-secondary-900 font-medium">
+                            <i data-lucide="users" class="w-4 h-4 text-primary-500"></i><span data-i18n="investimento.card2.features.feature2"> Foco em formação de comunidade</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-secondary-900 font-medium">
+                            <i data-lucide="book-open" class="w-4 h-4 text-primary-500"></i><span data-i18n="investimento.card2.features.feature3"> Conteúdo focado em MisoBio</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-auto">
+                        <span data-i18n="investimento.card2.pricetag" class="text-[10px] uppercase font-bold text-appleGray-400 tracking-widest">Valor Global (Parcelável 3x)</span>
+                        <div class="text-4xl font-black mt-1 text-secondary-900">R$ 7.200,00</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button data-i18n="investimento.request" onclick="openModal()" class="bg-primary-500 text-white px-12 py-4 rounded-full font-black text-sm hover:shadow-xl hover:scale-105 transition-all">
+                    SOLICITAR CONTRATO
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-white border-t border-gray-100">
+        <div class="max-w-[1000px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-appleGray-400">
+            <p data-i18n="footer">© 2026. Proposta exclusiva de Canabinote para MisoBio. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Modal Logic
+        const modal = document.getElementById('contract-modal');
+        
+        function openModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on overlay click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Enviando...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = 'Solicitação Enviada!';
+                btn.classList.replace('bg-primary-500', 'bg-green-600');
+                setTimeout(() => {
+                    closeModal();
+                    // Reset para próxima abertura
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                        btn.classList.replace('bg-green-600', 'bg-primary-500');
+                        e.target.reset();
+                    }, 500);
+                }, 1500);
+            }, 1000);
+        }
+
+        // Reveal animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Navbar scroll logic
+        window.addEventListener('scroll', () => {
+            const navContent = document.getElementById('nav-content');
+            if (window.scrollY > 20) {
+                navContent.classList.add('scrolled');
+            } else {
+                navContent.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <script>
+        lucide.createIcons();
+
+        // Lógica de Troca de Imagem
+        function switchImage(type) {
+            document.querySelectorAll('.mockup-img').forEach(img => img.classList.remove('active'));
+            document.querySelectorAll('.apple-selector').forEach(sel => sel.classList.remove('active'));
+
+            const targetImg = document.getElementById(`img-${type}`);
+            const targetCard = document.getElementById(`card-${type}`);
+            
+            if (targetImg) targetImg.classList.add('active');
+            if (targetCard) targetCard.classList.add('active');
+        }
+    </script>
+
+    <script>
+        const switcher = document.querySelector('.lang-switcher');
+        const currentBtn = document.querySelector('.lang-current');
+        const currentFlag = currentBtn.querySelector('img');
+
+        currentBtn.addEventListener('click', () => {
+            switcher.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.lang-options li').forEach(option => {
+            option.addEventListener('click', () => {
+                const lang = option.dataset.lang;
+                const img = option.querySelector('img').src;
+
+                currentFlag.src = img;
+                loadLanguage(lang);
+
+                switcher.classList.remove('open');
+            });
+        });
+
+        document.addEventListener('click', e => {
+            if (!switcher.contains(e.target)) {
+                switcher.classList.remove('open');
+            }
+        });
+
+    </script>
+
+    <script>
+        function runGeminiAnalysis() {
+            document.getElementById('gemini-initial').classList.add('hidden');
+            document.getElementById('gemini-loading').classList.remove('hidden');
+
+            setTimeout(() => {
+                document.getElementById('gemini-loading').classList.add('hidden');
+                document.getElementById('gemini-result').classList.remove('hidden');
+            }, 2500);
+        }
+
+        function resetGemini() {
+            document.getElementById('gemini-result').classList.add('hidden');
+            document.getElementById('gemini-initial').classList.remove('hidden');
+        }
+    </script>
+
+    <script>
+let translations = {};
+let currentLang = 'en'; // default
+
+async function loadLanguage(lang) {
+    try {
+        const response = await fetch(`/i18n/${lang}.json`);
+        translations = await response.json();
+        currentLang = lang;
+
+        applyTranslations();
+        document.documentElement.lang = lang;
+    } catch (err) {
+        console.error('Error loading language file:', err);
+    }
+}
+
+function applyTranslations() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        const value = getNestedValue(translations, key);
+
+        if (value) {
+            el.textContent = value;
+        }
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.dataset.i18nPlaceholder;
+        const value = getNestedValue(translations, key);
+
+        if (value) {
+            el.placeholder = value;
+        }
+    });
+}
+
+function getNestedValue(obj, path) {
+    return path.split('.').reduce((acc, part) => acc && acc[part], obj);
+}
+
+// carrega idioma default ao abrir o site
+document.addEventListener('DOMContentLoaded', () => {
+    loadLanguage(currentLang);
+});
+</script>
+
+</body>
+</html>

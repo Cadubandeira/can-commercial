@@ -1,0 +1,149 @@
+{
+  "nav": {
+    "solution": "Solution",
+    "differentials": "Differentials",
+    "deliverables": "Deliverables",
+    "pricing": "Pricing",
+    "request": "Request contract"
+  },
+  "hero": {
+    "title": {
+      "line1": "Your brand, prescribed.",
+      "line2": "Guided by science."
+    },
+    "subtitle": "Transform MisoBio into a structured channel for relationship and growth through an exclusive prescription ecosystem.",
+    "badges": {
+      "fast": "Fast Implementation",
+      "compliance": "Compliance",
+      "AI": "Powered by AI"
+    }
+  },
+  "modal": {
+    "title": "Ready to lead the scientific transformation?",
+    "subtitle": "Request the contract to formalize the partnership.",
+    "form": {
+      "name": {
+        "label": "Full name",
+        "placeholder": "e.g. Dr. John Smith"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "john@clinic.com"
+      },
+      "submit": "Send"
+    },
+    "disclaimer": "By clicking, you agree to be contacted by the Canabinote team to complete commercial procedures."
+  },
+  "solução": {
+    "title": "What is the White Label Prescription Platform?",
+    "description": "It is a personalized digital health platform that places MisoBio at the center of clinical decision-making. A robust tool for physicians and a source of intelligence for your brand.",
+    "card1": {
+      "title": "Digital Prescription",
+      "description": "Seamless integration into the clinic."
+    },
+    "card2": {
+      "title": "Monitoring",
+      "description": "Real-time adherence data."
+    },
+    "card3": {
+      "title": "Own Identity",
+      "description": "Your brand, our technology."
+    }
+    },
+    "diferenciais": {
+      "title": "Why have a personalized environment?",
+      "subtitle": "Strategic advantages for brands seeking leadership.",
+      "card1": {
+        "title": "Physician Loyalty",
+        "description": "Continuous experience and support for daily clinical practice, creating a genuine bond between physician and brand."
+      },
+      "card2": {
+        "title": "Targeted Training",
+        "description": "Guide physicians through your brand's portfolio and scientific positioning seamlessly."
+      },
+      "card3": {
+        "title": "Market Intelligence",
+        "description": "Real-time visibility into prescription trends and patient adherence."
+      },
+      "card4": {
+        "title": "Community Strengthening",
+        "description": "Competitive differentiation in the medical ecosystem through cutting-edge technology."
+      }
+    },
+    "entregaveis": {
+      "title": "What is included in the implementation?",
+      "subtitle": "Comprehensive setup to get you started quickly.",
+      "card1": {
+        "overline": "Branding",
+        "title": "Custom Visual Identity",
+        "description": "Personalized design aligned with MisoBio's brand guidelines.",
+        "bottom": "Unique experience"
+      },
+        "card2": {
+            "overline": "Integration",
+            "title": "System Configuration",
+            "description": "Integration of MisoBio's product catalog and clinical protocols.",
+            "bottom": "Seamless connection"
+        },
+      "card3": {
+        "overline": "Operation",
+        "title": "Product Setup",
+        "description": "Registration of the MisoBio product portfolio.",
+        "bottom": "Ready for prescription"
+      },
+      "card4": {
+        "overline": "Authority",
+        "title": "Scientific Journeys",
+        "description": "Share Canabinote's science to support the prescription of your products.",
+        "bottom": "Cutting-edge science"
+      },
+      "card5": {
+        "overline": "Permissions",
+        "title": "Access Profiles",
+        "description": "Initial structure of access profiles (admin, prescribers, support, etc.).",
+        "bottom": "Team Management"
+      },
+      "card6": {
+        "overline": "Onboarding",
+        "title": "Support & Guidance",
+        "description": "All the necessary support to manage your system, extracting its full potential.",
+        "bottom": "Focused on your success"
+      }
+    },
+    "investimento": {
+      "title": "Investment",
+      "description": "Personalized proposal for immediate implementation.",
+      "card1": {
+        "gemini_tag": "Gemini Recommendation",
+        "title": "White Label Platform",
+        "description": "Complete prescription and recommendation system.",
+        "features": {
+          "feature1": "Up to 500 medical signatures",
+          "feature2": "Real-time administrative dashboard",
+          "feature3": "Specialized technical support"
+        },
+        "pricetag": "Monthly Fee"
+      },
+      "card2": {
+        "title": "Education & Engagement",
+        "description": "Training program with reference physicians.",
+        "features": {
+          "feature1": "6 Biweekly online meetings",
+          "feature2": "Focus on community building",
+          "feature3": "Content focused on MisoBio"
+        },
+        "tag": "Optional",
+        "pricetag": "Total Value (Payable in 3 installments)"
+      },
+      "request": "Request contract"
+    },
+    "footer": "© 2026. Exclusive proposal from Canabinote for MisoBio. All rights reserved.",
+    "gemini": {
+        "title": "Gemini Opportunity Analysis",
+        "prompt": "Ask AI to analyze how MisoBio can benefit from Canabinote services.",
+        "button": "Analyze Opportunity",
+        "loading": "Analyzing MisoBio and Canabinote data...",
+        "result": "Cross-analysis indicates 94% synergy. MisoBio gains a direct prescription channel eliminating friction in the patient journey, while Canabinote technology provides Real World Evidence (RWE) data crucial for market expansion. We project a 27% increase in patient LTV (Lifetime Value).",
+        "reset": "New Analysis"
+    }
+}

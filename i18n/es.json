@@ -1,0 +1,149 @@
+{
+  "nav": {
+    "solution": "La Solución",
+    "differentials": "Diferenciales",
+    "deliverables": "Entregables",
+    "pricing": "Inversión",
+    "request": "Solicitar contrato"
+  },
+  "hero": {
+    "title": {
+      "line1": "Su marca prescrita.",
+      "line2": "Guiada por la ciencia."
+    },
+    "subtitle": "Transforme MisoBio en un canal estructurado de relación y crecimiento a través de un ecosistema exclusivo de prescripción.",
+    "badges": {
+      "fast": "Implementación Rápida",
+      "compliance": "Cumplimiento",
+      "AI": "Impulsado por IA"
+    }
+  },
+  "modal": {
+    "title": "¿Listo para liderar la transformación científica?",
+    "subtitle": "Solicite el contrato para formalizar la asociación.",
+    "form": {
+      "name": {
+        "label": "Nombre completo",
+        "placeholder": "Ej.: Dr. Juan Pérez"
+      },
+      "email": {
+        "label": "Correo electrónico",
+        "placeholder": "juan@clinica.com"
+      },
+      "submit": "Enviar"
+    },
+    "disclaimer": "Al hacer clic, acepta ser contactado por el equipo de Canabinote para finalizar los trámites comerciales."
+  },
+  "solução": {
+    "title": "¿Qué es la Plataforma de Prescripción White Label?",
+    "description": "Es una plataforma de salud digital personalizada que coloca a MisoBio en el centro de la toma de decisiones clínicas. Una herramienta robusta para los médicos y una fuente de inteligencia para su marca.",
+    "card1": {
+      "title": "Prescripción Digital",
+      "description": "Integración perfecta en la clínica."
+    },
+    "card2": {
+      "title": "Monitoreo",
+      "description": "Datos de adherencia en tiempo real."
+    },
+    "card3": {
+      "title": "Identidad Propia",
+      "description": "Su marca, nuestra tecnología."
+    }
+    },
+    "diferenciais": {
+      "title": "¿Por qué tener un entorno personalizado?",
+      "subtitle": "Ventajas estratégicas para marcas que buscan liderazgo.",
+      "card1": {
+        "title": "Lealtad del Médico",
+        "description": "Experiencia continua y apoyo para la práctica clínica diaria, creando un vínculo genuino entre el médico y la marca."
+      },
+      "card2": {
+        "title": "Entrenamiento Dirigido",
+        "description": "Guíe a los médicos a través del portafolio de su marca y su posición científica de manera sencilla."
+      },
+      "card3": {
+        "title": "Inteligencia de Mercado",
+        "description": "Visibilidad en tiempo real sobre tendencias de prescripción y adherencia del paciente."
+      },
+      "card4": {
+        "title": "Fortalecimiento Comunitario",
+        "description": "Diferenciación competitiva en el ecosistema médico mediante tecnología de vanguardia."
+      }
+    },
+    "entregaveis": {
+      "title": "¿Qué se incluye en la implementación?",
+      "subtitle": "Configuración integral para comenzar rápidamente.",
+      "card1": {
+        "overline": "Branding",
+        "title": "Identidad Visual Personalizada",
+        "description": "Diseño personalizado alineado con las directrices de marca de MisoBio.",
+        "bottom": "Experiencia única"
+      },
+        "card2": {
+            "overline": "Integración",
+            "title": "Configuración del Sistema",
+            "description": "Integración del catálogo de productos y protocolos clínicos de MisoBio.",
+            "bottom": "Conexión perfecta"
+        },
+      "card3": {
+        "overline": "Operación",
+        "title": "Configuración del Producto",
+        "description": "Registro del portafolio de productos MisoBio.",
+        "bottom": 	"Listo para prescribir"
+      },
+     	"card4": {
+        	"overline":"Autoridad",
+        	"title":"Viajes Científicos",
+        	"description":"Comparta la ciencia de Canabinote para apoyar la prescripción de sus productos.",
+        	"bottom":"Ciencia puntera"
+       },
+      	"card5":{
+        	"overline":"Permisos",
+        	"title":"Perfiles de Acceso",
+        	"description":"Estructura inicial de perfiles de acceso (admin, prescriptores, soporte, etc.).",
+        	"bottom":"Gestión del equipo"
+       },
+      	"card6":{
+        	"overline":"Onboarding",
+        	"title":"Soporte y Orientación",
+        	"description":"Todo el apoyo necesario para gestionar su sistema, extrayendo todo su potencial.",
+        	"bottom":"Enfocado en su éxito"
+       }
+    },
+    "investimento": {
+     "title":"Inversión", 
+     "description":"Propuesta personalizada para implementación inmediata.",
+     "card1":{
+       "gemini_tag": "Recomendación Gemini",
+       "title":"Plataforma White Label", 
+       "description":"Sistema completo de prescripción y recomendación.",
+       "features":{
+          "feature1":"Hasta 500 firmas médicas", 
+          "feature2":"Panel administrativo en tiempo real", 
+          "feature3":"Soporte técnico especializado"
+       }, 
+       "pricetag":"Tarifa Mensual"
+     }, 
+     "card2":{
+       "title":"Educación y Participación", 
+       "description":"Programa de capacitación con médicos referentes.", 
+       "features":{
+          "feature1":"6 reuniones online bimodales", 
+          "feature2":"Enfoque en construcción comunitaria", 
+          "feature3":"Contenido enfocado en MisoBio"
+       }, 
+       "tag":"Opcional", 
+       "pricetag":"Valor Total (Pagadero en 3 cuotas)"
+     }, 
+     "request": "Solicitar contrato"
+     },
+     "footer": "© 2026. Propuesta exclusiva de Canabinote para MisoBio. Todos los derechos reservados.",
+     "gemini": {
+        "title": "Análisis de Oportunidad Gemini",
+        "prompt": "Pida a la IA que analice cómo MisoBio puede beneficiarse de los servicios de Canabinote.",
+        "button": "Analizar Oportunidad",
+        "loading": "Analizando datos de MisoBio y Canabinote...",
+        "result": "El análisis cruzado indica una sinergia del 94%. MisoBio gana un canal de prescripción directo que elimina la fricción en el viaje del paciente, mientras que la tecnología Canabinote proporciona datos de Evidencia del Mundo Real (RWE) cruciales para su expansión de mercado. Proyectamos un aumento del 27% en el LTV (Lifetime Value) del paciente.",
+        "reset": "Nueva Análisis"
+    }
+}
