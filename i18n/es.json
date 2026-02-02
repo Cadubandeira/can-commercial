@@ -97,7 +97,7 @@
         "overline": "Treinamiento",
         "title": "Treinamiento y Soporte",
         "description": "Capacitación de la equipe médica y soporte continuo para garantizar el uso eficaz de la plataforma.",
-        "bottom": 	"Apoio dedicado para maximizar el compromiso."
+        "bottom": 	"Compromiso máximo."
       },
      	"card4": {
         	"overline":"Recursos",
@@ -115,7 +115,7 @@
           "overline": "Compliance",
           "title": "Conformidad Regulatoria",
           "description": "Garantía de que la plataforma cumple con todas las normas y regulaciones aplicables al sector de la salud.",
-          "bottom": "Seguridad y cumplimiento garantizados."
+          "bottom": "Conformidad garantizada."
         }
     },
     "investimento": {
@@ -141,7 +141,7 @@
           "feature3":"Contenido enfocado en MisoBio"
        }, 
        "tag":"Paquete individual", 
-       "pricetag":"Valor Total (Pagadero en 3 cuotas)"
+       "pricetag":"Valor Total (hasta 3 cuotas)"
      }, 
      "request": "Solicitar contrato"
      },

@@ -97,7 +97,7 @@
             "overline": "Treinamento",
             "title": "Treinamento e Suporte",
             "description": "Capacitação da equipe médica e suporte contínuo para garantir o uso eficaz da plataforma.",
-            "bottom": "Apoio dedicado para maximizar o engajamento."
+            "bottom": "Aumente o engajamento."
         },
         "card4": { 
             "overline":"Recursos",
@@ -142,7 +142,7 @@
                 "feature2": "Foco em formação de comunidade",
                 "feature3": "Conteúdo focado em MisoBio"
             },
-            "pricetag": "Valor Global (Parcelável 3x)"
+            "pricetag": "Valor total (Parcelável 3x)"
         },
         "request": "Solicitar contrato"
     },
