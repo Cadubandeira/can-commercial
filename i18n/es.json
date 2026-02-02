@@ -48,6 +48,14 @@
     "card3": {
       "title": "Identidad Propia",
       "description": "Su marca, nuestra tecnología."
+    },
+    "images": {
+        "quimiotipo":{
+          "src": "img/quimiotipo-es.png"},
+        "dashboard":{
+           "src":"img/dashboard-es.png"},
+        "configurações":{
+          "src":"img/configurações-es.png"}
     }
     },
     "diferenciais": {
