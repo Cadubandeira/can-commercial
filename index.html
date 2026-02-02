@@ -725,25 +725,26 @@
 
         function handleFormSubmit(e) {
             e.preventDefault();
-            const btn = e.target.querySelector('button');
+            const form = e.target;
+            const btn = form.querySelector('button');
+            
+            // Captura os dados do formulário
+            const name = form.querySelector('input[type="text"]').value;
+            const email = form.querySelector('input[type="email"]').value;
+
+            // Monta e abre o link mailto
+            const subject = "Contrato requisitado por MisoBio";
+            const body = `Nome: ${name}\nE-mail: ${email}`;
+            window.location.href = `mailto:Para canabinote@canabinote.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
             const originalText = btn.innerHTML;
-            btn.innerHTML = 'Enviando...';
-            btn.disabled = true;
+            btn.innerHTML = 'Abrindo e-mail...';
             
             setTimeout(() => {
-                btn.innerHTML = 'Solicitação Enviada!';
-                btn.classList.replace('bg-primary-500', 'bg-green-600');
-                setTimeout(() => {
-                    closeModal();
-                    // Reset para próxima abertura
-                    setTimeout(() => {
-                        btn.innerHTML = originalText;
-                        btn.disabled = false;
-                        btn.classList.replace('bg-green-600', 'bg-primary-500');
-                        e.target.reset();
-                    }, 500);
-                }, 1500);
-            }, 1000);
+                closeModal();
+                form.reset();
+                btn.innerHTML = originalText;
+            }, 1500);
         }
 
         // Reveal animations
