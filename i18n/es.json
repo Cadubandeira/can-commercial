@@ -38,8 +38,8 @@
     "title": "¿Qué es la Plataforma de Prescripción White Label?",
     "description": "Es una plataforma de salud digital personalizada que coloca a MisoBio en el centro de la toma de decisiones clínicas. Una herramienta robusta para los médicos y una fuente de inteligencia para su marca.",
     "card1": {
-      "title": "Prescripción Digital",
-      "description": "Integración perfecta en la clínica."
+      "title": "Educación médica",
+      "description": "Apoyo a la prescripción por condiciones clínicas"
     },
     "card2": {
       "title": "Monitoreo",
@@ -54,8 +54,8 @@
       "title": "¿Por qué tener un entorno personalizado?",
       "subtitle": "Ventajas estratégicas para marcas que buscan liderazgo.",
       "card1": {
-        "title": "Lealtad del Médico",
-        "description": "Experiencia continua y apoyo para la práctica clínica diaria, creando un vínculo genuino entre el médico y la marca."
+        "title": "Entorno seguro para prescripción",
+        "description": "Resultando en mayor precisión y adherencia del paciente al tratamiento."
       },
       "card2": {
         "title": "Entrenamiento Dirigido",
@@ -86,16 +86,16 @@
             "bottom": "Conexión perfecta"
         },
       "card3": {
-        "overline": "Operación",
-        "title": "Configuración del Producto",
-        "description": "Registro del portafolio de productos MisoBio.",
-        "bottom": 	"Listo para prescribir"
+        "overline": "Treinamiento",
+        "title": "Treinamiento y Soporte",
+        "description": "Capacitación de la equipe médica y soporte continuo para garantizar el uso eficaz de la plataforma.",
+        "bottom": 	"Apoio dedicado para maximizar el compromiso."
       },
      	"card4": {
-        	"overline":"Autoridad",
-        	"title":"Viajes Científicos",
-        	"description":"Comparta la ciencia de Canabinote para apoyar la prescripción de sus productos.",
-        	"bottom":"Ciencia puntera"
+        	"overline":"Recursos",
+        	"title":"Monitoreo del desempeño",
+        	"description":"Herramientas de análisis para monitorear el rendimiento de la plataforma y el compromiso de los médicos.",
+        	"bottom":"Datos estratégicos."
        },
       	"card5":{
         	"overline":"Permisos",
@@ -104,17 +104,17 @@
         	"bottom":"Gestión del equipo"
        },
       	"card6":{
-        	"overline":"Onboarding",
-        	"title":"Soporte y Orientación",
-        	"description":"Todo el apoyo necesario para gestionar su sistema, extrayendo todo su potencial.",
-        	"bottom":"Enfocado en su éxito"
-       }
+          "overline": "Compliance",
+          "title": "Conformidad Regulatoria",
+          "description": "Garantía de que la plataforma cumple con todas las normas y regulaciones aplicables al sector de la salud.",
+          "bottom": "Seguridad y cumplimiento garantizados."
+        }
     },
     "investimento": {
      "title":"Inversión", 
      "description":"Propuesta personalizada para implementación inmediata.",
      "card1":{
-       "gemini_tag": "Mejor elección para MisoBio",
+       "gemini_tag": "Plan Mensual",
        "title":"Plataforma White Label", 
        "description":"Sistema completo de prescripción y recomendación.",
        "features":{
@@ -132,7 +132,7 @@
           "feature2":"Enfoque en construcción comunitaria", 
           "feature3":"Contenido enfocado en MisoBio"
        }, 
-       "tag":"Opcional", 
+       "tag":"Paquete individual", 
        "pricetag":"Valor Total (Pagadero en 3 cuotas)"
      }, 
      "request": "Solicitar contrato"

@@ -38,8 +38,8 @@
     "title": "What is the White Label Prescription Platform?",
     "description": "It is a personalized digital health platform that places MisoBio at the center of clinical decision-making. A robust tool for physicians and a source of intelligence for your brand.",
     "card1": {
-      "title": "Digital Prescription",
-      "description": "Seamless integration into the clinic."
+      "title": "Medical Education",
+      "description": "Support for prescription by clinical conditions."
     },
     "card2": {
       "title": "Monitoring",
@@ -48,14 +48,22 @@
     "card3": {
       "title": "Own Identity",
       "description": "Your brand, our technology."
-    }
     },
+    "images": {
+        "quimiotipo":{
+          "src": "img/quimiotipo-en.png"},
+        "dashboard":{
+           "src":"img/dashboard-en.png"},
+        "configurações":{
+          "src":"img/configurações-en.png"}
+    }
+  },
     "diferenciais": {
       "title": "Why have a personalized environment?",
       "subtitle": "Strategic advantages for brands seeking leadership.",
       "card1": {
-        "title": "Physician Loyalty",
-        "description": "Continuous experience and support for daily clinical practice, creating a genuine bond between physician and brand."
+        "title": "Secure Prescription Environment",
+         "description": "Resulting in greater accuracy and patient adherence to treatment."
       },
       "card2": {
         "title": "Targeted Training",
@@ -86,16 +94,16 @@
             "bottom": "Seamless connection"
         },
       "card3": {
-        "overline": "Operation",
-        "title": "Product Setup",
-        "description": "Registration of the MisoBio product portfolio.",
-        "bottom": "Ready for prescription"
+        "overline": "Training",
+        "title": "Training and Support",
+        "description": "Medical team training and ongoing support to ensure effective platform use.",
+        "bottom": "Dedicated support to maximize engagement"
       },
       "card4": {
-        "overline": "Authority",
-        "title": "Scientific Journeys",
-        "description": "Share Canabinote's science to support the prescription of your products.",
-        "bottom": "Cutting-edge science"
+        "overline": "Resources",
+        "title": "Performance Monitoring",
+        "description": "Analytics tools to track platform performance and physician engagement.",
+        "bottom": "Strategic data."
       },
       "card5": {
         "overline": "Permissions",
@@ -104,17 +112,17 @@
         "bottom": "Team Management"
       },
       "card6": {
-        "overline": "Onboarding",
-        "title": "Support & Guidance",
-        "description": "All the necessary support to manage your system, extracting its full potential.",
-        "bottom": "Focused on your success"
+        "overline": "Compliance",
+        "title": "Regulatory Compliance",
+        "description": "Ensuring that the platform complies with all standards and regulations applicable to the healthcare sector.",
+        "bottom": "Security and compliance guaranteed."
       }
     },
     "investimento": {
       "title": "Investment",
       "description": "Personalized proposal for immediate implementation.",
       "card1": {
-        "gemini_tag": "MisoBio best pick",
+        "gemini_tag": "Monthly plan",
         "title": "White Label Platform",
         "description": "Complete prescription and recommendation system.",
         "features": {
@@ -132,7 +140,7 @@
           "feature2": "Focus on community building",
           "feature3": "Content focused on MisoBio"
         },
-        "tag": "Optional",
+        "tag": "Single package",
         "pricetag": "Total Value (Payable in 3 installments)"
       },
       "request": "Request contract"

@@ -424,14 +424,17 @@
                 <div class="lg:col-span-8 reveal">
                     <div class="display-container">
                         <div class="screen-mockup">
-                            <img src="img/condição.png" 
-                                 alt="Interface prescrevendo para condição clínica" id="img-prescricao" class="mockup-img active">
+                            <img src="img/quimiotipo-en.png" 
+                                alt="Interface prescrevendo para condição clínica" id="img-prescricao" class="mockup-img active"
+                                data-i18n-img="solução.images.quimiotipo">
                             
-                            <img src="img/monitoramento.png" 
-                                 alt="Monitoramento de pacientes" id="img-monitoramento" class="mockup-img">
+                            <img src="img/dashboard-en.png" 
+                                 alt="Monitoramento de pacientes" id="img-monitoramento" class="mockup-img"
+                                 data-i18n-img="solução.images.dashboard">
 
-                            <img src="img/prescrição.png" 
-                                 alt="Branding" id="img-marca" class="mockup-img">
+                            <img src="img/configurações-en.png" 
+                                 alt="Branding" id="img-marca" class="mockup-img"
+                                 data-i18n-img="solução.images.configurações">
                         </div>
                     </div>
                 </div>
@@ -851,6 +854,17 @@ function applyTranslations() {
             el.placeholder = value;
         }
     });
+
+    // IMAGENS TRADUZÍVEIS
+document.querySelectorAll('[data-i18n-img]').forEach(img => {
+    const key = img.dataset.i18nImg;
+    const data = getNestedValue(translations, key);
+
+    if (!data) return;
+
+    if (data.src) img.src = data.src;
+    if (data.alt) img.alt = data.alt;
+});
 }
 
 function getNestedValue(obj, path) {
