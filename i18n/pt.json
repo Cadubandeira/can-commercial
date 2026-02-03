@@ -30,9 +30,9 @@
         "label": "E-mail",
         "placeholder": "joao@clinica.com"
       },
-      "submit": "Enviar"
+      "submit": "Continue para nos contatar"
     },
-    "disclaimer": "Ao clicar, você concorda em ser contatado pela equipe Canabinote para finalização dos trâmites comerciais."
+    "disclaimer": "Ao clicar, você será direcionado para seu provedor de e-mail, nos envie o e-mail para continuarmos com os trâmites comerciais."
   },
   "solução": {
     "title": "O que é a Plataforma de Prescrição White Label?",
