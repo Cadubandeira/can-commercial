@@ -34,6 +34,10 @@
     },
     "disclaimer": "Ao clicar, você será direcionado para seu provedor de e-mail, nos envie o e-mail para continuarmos com os trâmites comerciais."
   },
+  "email": {
+    "subject": "Contrato requisitado por MisoBio",
+    "body": "Olá, eu fiquei interessado na proposta comercial apresentada. \nNome: {name}\nE-mail: {email}"
+  },
   "solução": {
     "title": "O que é a Plataforma de Prescrição White Label?",
     "description": "É uma plataforma de saúde digital personalizada que coloca a MisoBio no centro da tomada de decisão clínica. Uma ferramenta robusta para os médicos e uma fonte de inteligência para sua marca.",

@@ -34,6 +34,10 @@
     },
     "disclaimer": "By clicking, you will be redirected to your email provider, please send us the email to proceed with the business arrangements."
   },
+  "email": {
+    "subject": "Contract requested by MisoBio",
+    "body": "Hello, I am interested in the commercial proposal presented. \nName: {name}\nEmail: {email}"
+  },
   "solução": {
     "title": "What is the White Label Prescription Platform?",
     "description": "It is a personalized digital health platform that places MisoBio at the center of clinical decision-making. A robust tool for physicians and a source of intelligence for your brand.",

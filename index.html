@@ -288,7 +288,7 @@
                     <a href="#investimento" data-i18n="nav.pricing">Pricing</a>
                 </div>
                 
-                <button onclick="openModal()" data-i18n="nav.request" class="bg-primary-500 text-white px-8 py-1.5 rounded-full text-[1rem] font-bold hover:bg-primary-600 transition-all">Request Contract</button>
+                <button onclick="openModal()" data-i18n="nav.request" class="hidden md:block bg-primary-500 text-white px-8 py-1.5 rounded-full text-[1rem] font-bold hover:bg-primary-600 transition-all">Request Contract</button>
 
                 <div class="lang-switcher">
                     <button class="lang-current" aria-label="Change language">
@@ -733,8 +733,12 @@
             const email = form.querySelector('input[type="email"]').value;
 
             // Monta e abre o link mailto
-            const subject = "Contrato requisitado por MisoBio";
-            const body = `Nome: ${name}\nE-mail: ${email}`;
+            const subject = getNestedValue(translations, 'email.subject') || "Contrato requisitado por MisoBio";
+            let bodyTemplate = getNestedValue(translations, 'email.body') || "Olá, eu fiquei interessado na proposta comercial apresentada. \nNome: {name}\nE-mail: {email}";
+            
+            // Substitui os placeholders pelos valores do formulário
+            const body = bodyTemplate.replace('{name}', name).replace('{email}', email);
+            
             window.location.href = `mailto:canabinote@canabinote.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
             const originalText = btn.innerHTML;
